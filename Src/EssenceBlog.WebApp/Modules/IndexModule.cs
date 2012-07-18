@@ -7,7 +7,7 @@ namespace EssenceBlog.WebApp.Modules
     public IndexModule()
     {
       Get["/"] =
-        @params => "Hello, world!" ;
+        @params => "Hello, world!!!" ;
     }
   }
 }

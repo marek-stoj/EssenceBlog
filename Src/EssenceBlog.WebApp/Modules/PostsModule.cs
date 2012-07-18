@@ -35,19 +35,24 @@ namespace EssenceBlog.WebApp.Modules
       Get["/"] =
         @params => "Posts Index";
 
-      Get[@"/(?<PostId>\d+)"] =
+      Get[@"/(?<PostId>.+)"] =
         @params => ViewPost(@params);
     }
 
     private Response ViewPost(dynamic @params)
     {
-      Post post = _postsRepository.GetById(Guid.NewGuid());
-      
+      Post post = _postsRepository.GetById(@params.PostId);
+
+      if (post == null)
+      {
+        return 404;
+      }
+
       var postViewModel =
         new PostViewModel
           {
-            PostTitle = "Don't Let Architecture Astronauts Scare You",
-            PostBodyHtml = _postProcessor.CreatePostHtml(post.Body),
+            PostTitle = post.Title ?? "Untitled",
+            PostBodyHtml = !string.IsNullOrEmpty(post.Body) ? _postProcessor.CreatePostHtml(post.Body) : "",
           };
 
       return View["Post", postViewModel];

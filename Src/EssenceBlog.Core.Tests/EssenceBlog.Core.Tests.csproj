@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FAB1250D-6D23-4E9B-91FF-1CF8C00C2C95}</ProjectGuid>
+    <ProjectGuid>{1816C977-F1B3-464E-9AFF-EFD69FFABE69}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EssenceBlog.Core</RootNamespace>
-    <AssemblyName>EssenceBlog.Core</AssemblyName>
+    <RootNamespace>EssenceBlog.Core.Tests</RootNamespace>
+    <AssemblyName>EssenceBlog.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,10 +39,10 @@
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MarkdownSharp">
-      <HintPath>..\..\Lib\MarkdownSharp\MarkdownSharp.dll</HintPath>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\Lib\NUnit\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="SharpSvn">
+    <Reference Include="SharpSvn, Version=1.7002.1998.12257, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
       <HintPath>..\..\Lib\SharpSvn\SharpSvn.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -54,15 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IBlogBuilder.cs" />
-    <Compile Include="InternalException.cs" />
-    <Compile Include="IPostProcessor.cs" />
-    <Compile Include="IPostsRepository.cs" />
-    <Compile Include="MarkdownPostProcessor.cs" />
-    <Compile Include="Post.cs" />
-    <Compile Include="SimpleSvnPostsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleSvnBlogBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EssenceBlog.Core\EssenceBlog.Core.csproj">
+      <Project>{FAB1250D-6D23-4E9B-91FF-1CF8C00C2C95}</Project>
+      <Name>EssenceBlog.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
