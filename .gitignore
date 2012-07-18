@@ -1,0 +1,8 @@
+
+/EssenceBlog.sln - Shortcut.lnk
+/Src/_ReSharper.EssenceBlog
+/Src/EssenceBlog.Core/bin
+/Src/EssenceBlog.Core/obj
+/Src/EssenceBlog.WebApp/obj
+/Src/EssenceBlog.WebApp/bin
+*.suo

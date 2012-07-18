@@ -1,0 +1,17 @@
+﻿@using Nancy.ViewEngines.Razor
+@using EssenceBlog.WebApp.ViewModels
+@inherits NancyRazorViewBase<PostViewModel>
+
+@{
+  Layout = "Views/Common/Layout.cshtml";
+}
+
+<article class="post">
+  <h1>
+    <a href="#">
+      @Model.PostTitle
+    </a>
+  </h1>
+
+  @Html.Raw(Model.PostBodyHtml)
+</article>
