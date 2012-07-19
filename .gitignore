@@ -7,3 +7,5 @@ obj
 *.suo
 *.user
 /BuildAndDeployToProduction.cmd
+/EssenceBlogBlog.build
+/Lib/Imm.NAnt
