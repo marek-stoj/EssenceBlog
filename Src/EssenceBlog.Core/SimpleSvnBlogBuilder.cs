@@ -61,6 +61,8 @@ namespace EssenceBlog.Core
     {
       using (var svnClient = new SvnClient())
       {
+        svnClient.UseDefaultConfiguration();
+
         svnClient.Authentication.Clear();
 
         svnClient.Authentication.DefaultCredentials =
@@ -68,7 +70,8 @@ namespace EssenceBlog.Core
 
         SvnUpdateResult result;
 
-        if (!Directory.Exists(_workingCopyPath))
+        if (!Directory.Exists(_workingCopyPath)
+         || svnClient.GetUriFromWorkingCopy(_workingCopyPath) == null)
         {
           svnClient.CheckOut(
             new SvnUriTarget(_repositoryPostsUrl),

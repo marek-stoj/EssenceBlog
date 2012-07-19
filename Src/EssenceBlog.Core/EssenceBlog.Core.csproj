@@ -50,6 +50,9 @@
     <Reference Include="MarkdownSharp">
       <HintPath>..\..\Lib\MarkdownSharp\MarkdownSharp.dll</HintPath>
     </Reference>
+    <Reference Include="SharpSvn, Version=1.7002.1998.12257, Culture=neutral, PublicKeyToken=d729672594885a28, processorArchitecture=x86">
+      <HintPath>..\..\Lib\SharpSvn\SharpSvn.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
