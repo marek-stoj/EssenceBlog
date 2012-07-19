@@ -1,6 +1,6 @@
 ﻿using Nancy;
 
-namespace EssenceBlog.WebApp.Modules
+namespace EssenceBlog.WebApp.Core.Modules
 {
   public class IndexModule : NancyModule
   {

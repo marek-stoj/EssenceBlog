@@ -1,7 +1,9 @@
 
 /EssenceBlog.sln - Shortcut.lnk
 /Src/_ReSharper.EssenceBlog
+/Src/EssenceBlog.WebApp/App_Data/Logs/*.*
 bin
 obj
 *.suo
 *.user
+/BuildAndDeployToProduction.cmd

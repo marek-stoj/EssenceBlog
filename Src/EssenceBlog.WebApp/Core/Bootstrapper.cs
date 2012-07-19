@@ -3,12 +3,16 @@ using System.Configuration;
 using System.Web;
 using EssenceBlog.Core;
 using Nancy;
+using Nancy.Bootstrapper;
 using Nancy.Diagnostics;
 using Nancy.Hosting.Aspnet;
 using TinyIoC;
+using log4net.Config;
 
 namespace EssenceBlog.WebApp.Core
 {
+  // TODO IMM HI: sort out the problem with SharpSvn (x86 vs x64)
+
   public class Bootstrapper : DefaultNancyAspNetBootstrapper
   {
     private const string _AppSettingsKey_RepositoryBaseUrl = "RepositoryBaseUrl";
@@ -17,6 +21,13 @@ namespace EssenceBlog.WebApp.Core
     private const string _AppSettingsKey_RepositoryPassword = "RepositoryPassword";
 
     private const string _WorkingCopyVirtualPath = "~/App_Data/WorkingCopy";
+
+    protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+    {
+      XmlConfigurator.Configure();
+
+      base.ApplicationStartup(container, pipelines);
+    }
 
     protected override void ConfigureApplicationContainer(TinyIoCContainer container)
     {

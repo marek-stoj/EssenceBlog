@@ -1,9 +1,9 @@
 ﻿using System;
 using EssenceBlog.Core;
-using EssenceBlog.WebApp.ViewModels;
+using EssenceBlog.WebApp.Core.ViewModels;
 using Nancy;
 
-namespace EssenceBlog.WebApp.Modules
+namespace EssenceBlog.WebApp.Core.Modules
 {
   public class PostsModule : NancyModule
   {

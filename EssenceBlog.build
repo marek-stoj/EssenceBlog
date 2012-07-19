@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Metareads" default="all">
+
+  <property name="msbuild.path" value="C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe" />
+
+  <target name="clean">
+    <mkdir dir="Bin" />
+    <delete>
+      <fileset basedir="Bin">
+        <include name="**/*" />
+      </fileset>
+    </delete>    
+  </target>
+
+  <target name="build">
+    <exec program="${msbuild.path}">
+      <arg value="Src\EssenceBlog.sln" />
+      <arg value="/t:Build" />
+      <arg value="/p:Configuration=Release" />
+    </exec>
+  </target>
+
+  <target name="publish">
+    <copy todir="Bin\EssenceBlog.WebApp">
+      <fileset basedir="Src\EssenceBlog.WebApp">
+        <include name="**/*" />
+        <exclude name="**/*.cs" />
+        <exclude name="**/*.csproj" />
+        <exclude name="**/*.user" />
+        <exclude name="**/*.suo" />
+        <exclude name="**/.gitignore" />
+        <exclude name="_ReSharper.EssenceBlog" />
+        <exclude name="_ReSharper.EssenceBlog/**/*" />
+        <exclude name="App_Data/Logs/**/*" />
+        <exclude name="**/Core" />
+        <exclude name="**/obj" />
+        <exclude name="**/obj/**/*" />
+        <exclude name="**/Properties" />
+        <exclude name="**/Properties/**/*" />
+        <exclude name="Bin/**/*.xml" />
+        <exclude name="Bin/**/*.pdb" />
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="all">
+    <call target="clean" />
+    <call target="build" />
+    <call target="publish" />
+  </target>
+  
+</project>

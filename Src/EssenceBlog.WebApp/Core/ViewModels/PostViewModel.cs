@@ -1,4 +1,4 @@
-namespace EssenceBlog.WebApp.ViewModels
+namespace EssenceBlog.WebApp.Core.ViewModels
 {
   public class PostViewModel
   {
